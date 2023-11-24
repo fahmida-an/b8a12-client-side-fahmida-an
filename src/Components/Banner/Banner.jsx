@@ -5,7 +5,7 @@ const Banner = () => {
   const AutoplaySlider = withAutoplay(AwesomeSlider);
   return (
     <>
-      <AutoplaySlider className="h-[600px]"
+      <AutoplaySlider className="h-[600px] z-0"
         play={true}
         cancelOnInteraction={false} // should stop playing on user interaction
         interval={3000}

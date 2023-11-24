@@ -1,21 +1,22 @@
 import PublisherCard from "./PublisherCard";
 import useNews from "../../hooks/useNews";
 import { useState } from "react";
+import CategoryCard from "./CategoryCard";
 
 const Publisher = () => {
    const [news] = useNews();
    const [showAll, setShowAll] = useState(false);
    const newsAll = showAll ? news :  news.slice(0,6)
   return (
-    <div className="mt-24 grid grid-cols-5">
-     <div className="grid-cols-3 grid col-span-4">
+    <div className="mt-24 grid grid-cols-1 lg:grid-cols-5">
+     <div className="lg:grid-cols-3 grid grid-cols-1 lg:col-span-4 gap-2 mx-auto">
      {
         newsAll.map(news => <PublisherCard key={news.id} news={news}></PublisherCard>)
      }
 
 
    <div>
-   <button className="text-white bg-fuchsia-900 rounded-lg px-5 py-2.5 text-center mr-2 mb-2 mt-2" onClick={()=> setShowAll(!showAll)}>
+   <button className="text-white bg-fuchsia-900 rounded-lg px-5 py-2.5 text-center mr-2 mb-2 mt-2 mx-auto" onClick={()=> setShowAll(!showAll)}>
         {
           showAll ? "Show Less" : 'Show All'
         }
@@ -25,8 +26,10 @@ const Publisher = () => {
 
      </div>
 
-     <div>
-        <h2>premium</h2>
+     <div className="mx-auto">
+       {
+        newsAll.map(news => <CategoryCard key={news.id} news={news}></CategoryCard>)
+       }
      </div>
 
      
