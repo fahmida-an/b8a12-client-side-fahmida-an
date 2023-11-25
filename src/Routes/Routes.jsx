@@ -6,6 +6,9 @@ import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import Premium from "../pages/Premium/Premium";
+import PremiumPackage from "../pages/Premium/PremiumPackage";
+import Payment from "../pages/payment/Payment";
   
   const router = createBrowserRouter([
     {
@@ -16,7 +19,20 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
         {
             path: "/",
             element: <Home/>
+        },
+        {
+          path: "/premium",
+          element: <Premium></Premium>
+        },
+        {
+          path: "premiumPackage",
+          element: <PremiumPackage></PremiumPackage>
+        },
+        {
+            path:'payment',
+            element: <Payment></Payment>
         }
+        
       ]
     },
     {
@@ -26,7 +42,8 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
     {
         path: "/signup",
         element: <SignUp></SignUp>
-    }
+    },
+    
   ]);
 
   export default router;
