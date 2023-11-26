@@ -1,9 +1,10 @@
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 const PublisherCard = ({news}) => {
 
-    const {id, title, image, category,price, details} = news;
+    const {_id, title, image, details} = news;
 
     useEffect(() => {
         Aos.init();
@@ -24,7 +25,9 @@ const PublisherCard = ({news}) => {
                 <p className="dark:text-gray-100">{details}</p>
             }
 		</div>
-		<button className="btn flex items-center justify-center w-full p-3 font-semibold tracki rounded-md">Continue</button>
+		<Link to={`/news/${_id}`}>
+        <button className="btn flex items-center justify-center w-full p-3 font-semibold tracki rounded-md">Continue</button>
+        </Link>
 	</div>
 </div>
      </div>

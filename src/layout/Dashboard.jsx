@@ -115,6 +115,14 @@ const Dashboard = () => {
             )}
           </ul>
           <ul className="pt-4 mt-4 space-y-2 font-medium border-t border-gray-200 dark:border-gray-700">
+          <li>
+              <NavLink
+                to={"/"}
+                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-fuchsia-900 hover:text-white dark:hover:bg-gray-700 group"
+              >
+                <span className="flex-1 ms-3 whitespace-nowrap">Home</span>
+              </NavLink>
+            </li>
             <li>
               <NavLink
                 to={"/profile"}

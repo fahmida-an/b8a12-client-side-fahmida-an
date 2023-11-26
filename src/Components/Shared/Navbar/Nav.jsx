@@ -6,12 +6,16 @@ import { FaTimes } from "react-icons/fa";
 import { CiMenuFries } from "react-icons/ci";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import useAdmin from "../../../hooks/useAdmin";
+import usePremiumUser from "../../../hooks/usePremiumUser";
 
 const Nav = () => {
   const [click, setClick] = useState(false);
   // const [onDash, setOnDash] = useState(false);
   const { user, logOut } = useContext(AuthContext);
   const [isAdmin] = useAdmin();
+  const [isPremium] = usePremiumUser()
+  console.log(isPremium);
+
   console.log(user);
   const handleClick = () => {
     setClick(!click);
@@ -127,21 +131,39 @@ const Nav = () => {
           </li> */}
 
                   {user && isAdmin && (
-                    <li>
-                      <Link to={"/dashboard/adminHome"}> Dashboard</Link>
+                    <Link to={"/dashboard/adminHome"}>
+                    <li className="hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer">
+                       Dashboard
                     </li>
+                    </Link>
                   )}
                   {user && !isAdmin && (
-                    <li>
-                      <Link to={"/dashboard/userHome"}> Dashboard</Link>
+                    <Link to={"/dashboard/userHome"}>
+                    <li className="hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer">
+                     Dashboard
                     </li>
+                    </Link>
                   )}
 
-                  <Link to={"/premium"}>
-                    <li className="hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer ">
+                  {
+                    user && isPremium && (
+                      <Link to={"/premiumArticle"}>
+                      <li className="hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer">
+                       Premium Article
+                      </li>
+                      </Link>
+                    )
+                  }
+
+{
+                    user && !isPremium && (
+                      <Link to={"/premium"}>
+                      <li className="hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer">
                       Subscription
-                    </li>
-                  </Link>
+                      </li>
+                      </Link>
+                    )
+                  }
 
                   <Link>
                     <li

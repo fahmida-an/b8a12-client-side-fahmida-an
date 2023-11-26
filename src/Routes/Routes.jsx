@@ -13,6 +13,7 @@ import Profile from "../pages/Profile/Profile";
 import Dashboard from "../layout/Dashboard";
 import AdminHome from "../pages/AdminHome/AdminHome";
 import UserHome from "../pages/UserHome/UserHome";
+import AddArticle from "../pages/AddArticle/AddArticle";
   
   const router = createBrowserRouter([
     {
@@ -55,6 +56,11 @@ import UserHome from "../pages/UserHome/UserHome";
       {
         path: "userHome",
         element: <UserHome></UserHome>
+      }, 
+      
+      {
+        path: "addArticle",
+        element: <AddArticle></AddArticle>
       }
     
     ]
