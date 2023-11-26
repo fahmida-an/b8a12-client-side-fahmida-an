@@ -14,6 +14,7 @@ import Dashboard from "../layout/Dashboard";
 import AdminHome from "../pages/AdminHome/AdminHome";
 import UserHome from "../pages/UserHome/UserHome";
 import AddArticle from "../pages/AddArticle/AddArticle";
+import NewsDetails from "../pages/News/NewsDetails";
   
   const router = createBrowserRouter([
     {
@@ -40,6 +41,12 @@ import AddArticle from "../pages/AddArticle/AddArticle";
         {
           path: '/profile',
           element: <Profile></Profile>
+        },
+        {
+          path: "/news/:id",
+          element: <NewsDetails></NewsDetails>,
+          // loader: ({params}) => fetch(`http://localhost:5000/news/${params.id}`)
+
         }
         
       ]
