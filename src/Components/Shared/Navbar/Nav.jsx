@@ -1,13 +1,17 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 // import { Link } from "react-scroll";
+// import { BiUpArrow, BiDownArrow} from "react-icons/bi";
 import { FaTimes } from "react-icons/fa";
 import { CiMenuFries } from "react-icons/ci";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import useAdmin from "../../../hooks/useAdmin";
 
 const Nav = () => {
   const [click, setClick] = useState(false);
+  // const [onDash, setOnDash] = useState(false);
   const { user, logOut } = useContext(AuthContext);
+  const [isAdmin] = useAdmin();
   console.log(user);
   const handleClick = () => {
     setClick(!click);
@@ -57,6 +61,10 @@ const Nav = () => {
                   Log Out
                 </li>
               </Link>
+
+              <Link>
+                <img className="w-20 h-20" src={user?.photoURL} alt="" />
+              </Link>
             </>
           ) : (
             <Link to={"/signup"}>
@@ -79,7 +87,7 @@ const Nav = () => {
 
         <div className="lg:flex md:flex lg:flex-1 items-center justify-end font-normal hidden">
           <div className="flex-1">
-            <ul className="flex gap-5 text-md">
+            <ul className="flex gap-5 text-sm">
               <Link to={"/"}>
                 <li className="hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer ">
                   Home
@@ -87,34 +95,73 @@ const Nav = () => {
               </Link>
               <Link to={"/allArticle"}>
                 <li className="hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer ">
-                  All Article
+                  See Article
                 </li>
               </Link>
-              
-          
+
               {user ? (
+                <>
+                  {/* <li  onClick={() => setOnDash(!onDash)}>
             
 
-              <>
-              <Link to={"/myArticle"}>
-                <li className="hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer ">
+                  
+            <div className="flex items-center justify-center hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer ">
+            <span className="mr-1">Article</span>
+            {onDash ? <BiUpArrow /> :  <BiDownArrow/> }
+            </div>
+            {onDash && (
+            <div className="mt-10 transition absolute border shadow-xl w-52 text-center justify-center h-[100px] z-50 bg-fuchsia-100 rounded-b-xl">
+              
+              <li className="mb-2 p-2 hover:bg-fuchsia-200">
+                <Link to={"/myArticle"} className=" text-fuchsia-900">
                   My Article
-                </li>
-              </Link>
-              <Link to={"/premium"}>
-                <li className="hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer ">
-                  Premium Member
-                </li>
                 </Link>
+              </li>
+              <li className=" p-2 hover:bg-fuchsia-200">
+                <Link to={"/addArticle"} className="text-fuchsia-900">
+                 Add Article
+                </Link>
+              </li>
+            </div>
+          )}
+          </li> */}
 
-                  <li
-                    onClick={handleLogOut}
-                    className="hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer "
-                  >
-                    log Out
-                  </li>
-                
-              </>
+                  {user && isAdmin && (
+                    <li>
+                      <Link to={"/dashboard/adminHome"}> Dashboard</Link>
+                    </li>
+                  )}
+                  {user && !isAdmin && (
+                    <li>
+                      <Link to={"/dashboard/userHome"}> Dashboard</Link>
+                    </li>
+                  )}
+
+                  <Link to={"/premium"}>
+                    <li className="hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer ">
+                      Subscription
+                    </li>
+                  </Link>
+
+                  <Link>
+                    <li
+                      onClick={handleLogOut}
+                      className="hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer "
+                    >
+                      log Out
+                    </li>
+                  </Link>
+
+                  <Link to={"/profile"}>
+                    <li>
+                      <img
+                        className="w-10 h-10 rounded-full border border-fuchsia-500"
+                        src={user.photoURL}
+                        alt=""
+                      />
+                    </li>
+                  </Link>
+                </>
               ) : (
                 <Link to={"/signup"}>
                   <li className="hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer ">
