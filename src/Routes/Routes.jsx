@@ -15,6 +15,7 @@ import AdminHome from "../pages/AdminHome/AdminHome";
 import UserHome from "../pages/UserHome/UserHome";
 import AddArticle from "../pages/AddArticle/AddArticle";
 import NewsDetails from "../pages/News/NewsDetails";
+import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
   
   const router = createBrowserRouter([
     {
@@ -59,6 +60,10 @@ import NewsDetails from "../pages/News/NewsDetails";
         {
         path: "adminHome",
         element:<AdminHome></AdminHome>
+      },
+      {
+        path: "allUsers",
+        element:<AllUsers></AllUsers>
       },
       {
         path: "userHome",
