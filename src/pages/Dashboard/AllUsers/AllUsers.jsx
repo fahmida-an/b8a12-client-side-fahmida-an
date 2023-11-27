@@ -1,7 +1,6 @@
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import { FaTrash, FaUsers } from "react-icons/fa";
-import Swal from "sweetalert2";
 import toast from "react-hot-toast"
 import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
@@ -19,32 +18,14 @@ const AllUsers = () => {
 
     
     const handleDelete = id => {
-      Swal.fire({
-          title: "Are you sure?",
-          text: "You won't be able to revert this!",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, delete it!"
-        }).then((result) => {
-          if (result.isConfirmed) {
-              axiosPublic.delete(`/users/${id}`)
-              .then(res => {
-                  console.log(res.data);
-                  if(res.data.deletedCount > 0){
-                      refetch();
-                      Swal.fire({
-                          title: "Deleted!",
-                          text: "Your file has been deleted.",
-                          icon: "success"
-                        });
-                  }
-              })
-  
-          }
-        });
-  
+       axiosPublic.delete(`/users/${id}`)
+       .then(res => {
+        console.log(res);
+        if(res.data.deletedCount > 0){
+            refetch()
+           toast.success(`${user.email} deleted`)
+        }
+    })
   }
   
     const handleMakeAdmin = user => {
@@ -66,13 +47,12 @@ const AllUsers = () => {
   
         <div className="overflow-x-auto overflow-y-auto">
           <table className="table">
-            {/* head */}
             <thead>
               <tr>
                 <th></th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>Action</th>
+                <th className="font-bold">Email</th>
+                <th className="font-bold">Role</th>
+                <th className="font-bold">Action</th>
               </tr>
             </thead>
             <tbody>

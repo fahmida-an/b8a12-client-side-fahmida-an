@@ -16,6 +16,9 @@ import UserHome from "../pages/UserHome/UserHome";
 import AddArticle from "../pages/AddArticle/AddArticle";
 import NewsDetails from "../pages/News/NewsDetails";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
+import AllArticle from "../pages/AllArticle/AllArticle";
+import AllPublishedArticle from "../pages/Dashboard/AllPublishedArticle/AllPublishedArticle";
+import MyNews from "../pages/Dashboard/MyNews/MyNews";
   
   const router = createBrowserRouter([
     {
@@ -48,6 +51,10 @@ import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
           element: <NewsDetails></NewsDetails>,
           // loader: ({params}) => fetch(`http://localhost:5000/news/${params.id}`)
 
+        },
+        {
+          path: "/allArticle",
+          element: <AllArticle></AllArticle>
         }
         
       ]
@@ -69,10 +76,19 @@ import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
         path: "userHome",
         element: <UserHome></UserHome>
       }, 
+
       
       {
         path: "addArticle",
         element: <AddArticle></AddArticle>
+      },
+      {
+        path: "mynews",
+        element: <MyNews></MyNews>
+      },
+      {
+        path: "allpublishedArticle",
+        element: <AllPublishedArticle></AllPublishedArticle>
       }
     
     ]

@@ -13,7 +13,7 @@ const Nav = () => {
   // const [onDash, setOnDash] = useState(false);
   const { user, logOut } = useContext(AuthContext);
   const [isAdmin] = useAdmin();
-  const [isPremium] = usePremiumUser()
+  const [isPremium] = usePremiumUser();
   console.log(isPremium);
 
   console.log(user);
@@ -130,40 +130,36 @@ const Nav = () => {
           )}
           </li> */}
 
+                  {user && isPremium && (
+                    <Link to={"/premiumArticle"}>
+                      <li className="hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer">
+                        Premium Article
+                      </li>
+                    </Link>
+                  )}
+
+                  {user && !isPremium && (
+                    <Link to={"/premium"}>
+                      <li className="hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer">
+                        Subscription
+                      </li>
+                    </Link>
+                  )}
+
                   {user && isAdmin && (
                     <Link to={"/dashboard/adminHome"}>
-                    <li className="hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer">
-                       Dashboard
-                    </li>
+                      <li className="hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer">
+                        Dashboard
+                      </li>
                     </Link>
                   )}
                   {user && !isAdmin && (
-                    <Link to={"/dashboard/userHome"}>
-                    <li className="hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer">
-                     Dashboard
-                    </li>
+                    <Link to={"/dashboard/addArticle"}>
+                      <li className="hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer">
+                        Add Article
+                      </li>
                     </Link>
                   )}
-
-                  {
-                    user && isPremium && (
-                      <Link to={"/premiumArticle"}>
-                      <li className="hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer">
-                       Premium Article
-                      </li>
-                      </Link>
-                    )
-                  }
-
-{
-                    user && !isPremium && (
-                      <Link to={"/premium"}>
-                      <li className="hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer">
-                      Subscription
-                      </li>
-                      </Link>
-                    )
-                  }
 
                   <Link>
                     <li

@@ -1,14 +1,16 @@
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import {toast} from 'react-hot-toast'
 import useAxiosPublic from '../../hooks/useAxiosPublic';
+import { AuthContext } from '../../Provider/AuthProvider';
 const animatedComponents = makeAnimated();
 const image_hosting_key = import.meta.env.VITE_IMGBB_API_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 const AddArticle = () => {
     const [selectedOptions, setSelectedOptions] = useState([]);
     const axiosPublic = useAxiosPublic();
+    const {user} = useContext(AuthContext)
 
     const tabOptions = [
         { value: 'political', label: 'Political' },
@@ -46,6 +48,7 @@ const AddArticle = () => {
             details,
             image: imageUrl,
             date,
+            email: user.email
           };
       
           console.log(newNewsArticle);

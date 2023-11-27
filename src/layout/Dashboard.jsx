@@ -62,6 +62,18 @@ const Dashboard = () => {
                 </li>
                 <li>
                   <NavLink
+                    to={"allpublishedArticle"}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "flex items-center p-2 rounded-lg bg-fuchsia-900 text-white  group"
+                        : "flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-fuchsia-900 hover:text-white dark:hover:bg-gray-700 group"
+                    }
+                  >
+                    <span className="ms-3">All Published Article</span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
                     to={"statistics"}
                     className={({ isActive }) =>
                       isActive
@@ -75,18 +87,7 @@ const Dashboard = () => {
               </>
             ) : (
               <>
-                        <li>
-                  <NavLink
-                    to={"userHome"}
-                    className={({ isActive }) =>
-                      isActive
-                        ? "flex items-center p-2 rounded-lg bg-fuchsia-900 text-white  group"
-                        : "flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-fuchsia-900 hover:text-white dark:hover:bg-gray-700 group"
-                    }
-                  >
-                    <span className="ms-3">User Home</span>
-                  </NavLink>
-                </li>
+                        
                 <li>
                   <NavLink
                     to={"addArticle"}
@@ -101,7 +102,7 @@ const Dashboard = () => {
                 </li>
                 <li>
                   <NavLink
-                    to={"myArticle"}
+                    to={"mynews"}
                     className={({ isActive }) =>
                       isActive
                         ? "flex items-center p-2 rounded-lg bg-fuchsia-900 text-white  group"
