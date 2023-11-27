@@ -8,7 +8,7 @@ const Banner = () => {
       <AutoplaySlider className="h-[600px] z-0"
         play={true}
         cancelOnInteraction={false} // should stop playing on user interaction
-        interval={3000}
+        interval={4000}
       >
         <div
           style={{

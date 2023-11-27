@@ -43,7 +43,7 @@ const PremiumCard = ({ premium }) => {
 
       <div className="flex justify-between max-w-5xl mx-auto mt-10">
         <div className="flex-1">
-            <h2 className="font-bold text-3xl">Advantages of Premium User</h2>
+            <h2 className="font-bold text-3xl mb-3">Advantages of Premium User</h2>
             <p className="mt-2">
 
             <Typewriter

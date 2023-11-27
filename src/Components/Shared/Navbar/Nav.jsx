@@ -86,19 +86,19 @@ const Nav = () => {
     <nav>
       <div className="h-10vh flex justify-between z-50 text-white lg:py-5 px-20 py-4">
         <div className="flex items-center flex-1">
-          <span className="text-3xl font-bold">TravelNews</span>
+          <span className="text-3xl font-bold text-slate-900">TravelNews</span>
         </div>
 
         <div className="lg:flex md:flex lg:flex-1 items-center justify-end font-normal hidden">
           <div className="flex-1">
-            <ul className="flex gap-5 text-sm">
+            <ul className="flex gap-5 text-sm text-slate-950">
               <Link to={"/"}>
-                <li className="hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer ">
+                <li className="hover:text-fuchsia-600 transition border-b-2 border-fuchsia-100  hover:border-fuchsia-600 cursor-pointer ">
                   Home
                 </li>
               </Link>
               <Link to={"/allArticle"}>
-                <li className="hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer ">
+                <li className="hover:text-fuchsia-600 transition border-b-2 border-fuchsia-100  hover:border-fuchsia-600 cursor-pointer ">
                   See Article
                 </li>
               </Link>
@@ -132,7 +132,7 @@ const Nav = () => {
 
                   {user && isPremium && (
                     <Link to={"/premiumArticle"}>
-                      <li className="hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer">
+                      <li className="hover:text-fuchsia-600 transition border-b-2 border-fuchsia-100  hover:border-fuchsia-600 cursor-pointer">
                         Premium Article
                       </li>
                     </Link>
@@ -140,7 +140,7 @@ const Nav = () => {
 
                   {user && !isPremium && (
                     <Link to={"/premium"}>
-                      <li className="hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer">
+                      <li className="hover:text-fuchsia-600 transition border-b-2 border-fuchsia-100  hover:border-fuchsia-600 cursor-pointer">
                         Subscription
                       </li>
                     </Link>
@@ -148,14 +148,14 @@ const Nav = () => {
 
                   {user && isAdmin && (
                     <Link to={"/dashboard/adminHome"}>
-                      <li className="hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer">
+                      <li className="hover:text-fuchsia-600 transition border-b-2 border-fuchsia-100  hover:border-fuchsia-600 cursor-pointer">
                         Dashboard
                       </li>
                     </Link>
                   )}
                   {user && !isAdmin && (
                     <Link to={"/dashboard/addArticle"}>
-                      <li className="hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer">
+                      <li className="hover:text-fuchsia-600 transition border-b-2 border-fuchsia-100 hover:border-fuchsia-600 cursor-pointer">
                         Add Article
                       </li>
                     </Link>
@@ -164,7 +164,7 @@ const Nav = () => {
                   <Link>
                     <li
                       onClick={handleLogOut}
-                      className="hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer "
+                      className="hover:text-fuchsia-600 transition border-b-2 border-fuchsia-100 hover:border-fuchsia-600 cursor-pointer "
                     >
                       log Out
                     </li>
@@ -182,7 +182,7 @@ const Nav = () => {
                 </>
               ) : (
                 <Link to={"/signup"}>
-                  <li className="hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer ">
+                  <li className="hover:text-fuchsia-600 transition border-b-2 border-fuchsia-100 hover:border-fuchsia-600 cursor-pointer ">
                     Sign Up
                   </li>
                 </Link>
