@@ -2,6 +2,11 @@ import useNews from "../../hooks/useNews";
 import  Typewriter  from "typewriter-effect";
 const AllArticle = () => {
     const [news] = useNews()
+    const allNews = news.filter((item) => item.status === "approved");
+    const sortedNews = allNews.sort((a, b) => {
+        // localeCompare is use for case-insensitive sorting
+        return b.date.localeCompare(a.date);
+      });
     return (
         <div className="max-w-screen-xl mx-auto bg-fuchsia-50">
         <h1 className="py-10 items-center text-center font-bold text-3xl">
@@ -15,7 +20,7 @@ const AllArticle = () => {
            >
            </Typewriter>
         </h1>
-        {news.map((item) => (
+        {sortedNews.map((item) => (
           
           <div key={item._id}
           className=" max-w-4xl mx-auto bg-white rounded-md shadow-md dark:bg-gray-900 "
