@@ -141,7 +141,7 @@ const AddArticle = () => {
                 <option value="The New York Times">The New York Times</option>
                 <option value="The Guardian">The Guardian</option>
                 <option value="The Washington Post">The Washington Post</option>
-                <option value="The Times (of London)">The Times (of London)</option>
+                <option value="The Times of London">The Times of London</option>
                 <option value="Le Monde">Le Monde</option>
                 <option value="The Wall Street Journal">The Wall Street Journal</option>
               </select>

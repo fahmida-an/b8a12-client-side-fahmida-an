@@ -4,19 +4,13 @@ import toast from "react-hot-toast"
 import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useUsers from "../../../hooks/useUsers";
 
 const AllUsers = () => {
     const {user} = useContext(AuthContext)
     const axiosSecure = useAxiosSecure();
-    const { data: users = [], refetch } = useQuery({
-      queryKey: ["users"],
-      queryFn: async () => {
-        const res = await axiosSecure.get("/users")
-        return res.data;
-      },
-    });
-
-    
+    const [users, refetch]= useUsers();
+ 
     const handleDelete = id => {
        axiosSecure.delete(`/users/${id}`)
        .then(res => {
@@ -41,11 +35,11 @@ const AllUsers = () => {
 
     return (
         <div className="bg-fuchsia-100">
-        <div className="flex text-center items-center justify-center font-bold py-10 border-b-2 border rounded-lg ">
+        <div className="flex max-w-5xl mx-auto text-center items-center justify-center font-bold py-10 border-b-2 border rounded-lg ">
           <h2 className="text-3xl">Total Users: {users.length}</h2>
         </div>
   
-        <div className="overflow-x-auto overflow-y-auto">
+        <div className="w-[800px] mx-auto overflow-x-auto overflow-y-auto">
           <table className="table">
             <thead>
               <tr>

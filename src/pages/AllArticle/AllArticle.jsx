@@ -1,11 +1,12 @@
 import { useState } from "react";
 import useNews from "../../hooks/useNews";
 import  Typewriter  from "typewriter-effect";
+import InfiniteScroll from 'react-infinite-scroller';
 const AllArticle = () => {
     const [news] = useNews()
     const allNews = news.filter((item) => item.status === "approved");
     const sortedNews = allNews.sort((a, b) => {
-        // localeCompare is use for case-insensitive sorting
+        // localeCompare is use for sorting
         return b.date.localeCompare(a.date);
       });
 
@@ -14,8 +15,20 @@ const AllArticle = () => {
       const handleShowAll = () => {
         setShowAll(!showAll);
       };
+      const loadFunc = () => {
+      };
     return (
-        <div className="max-w-screen-xl mx-auto bg-fuchsia-50">
+
+      
+        <div className="max-w-screen-xl mx-auto bg-fuchsia-50 " style={{ height: '700px', overflow: 'auto' }}>
+
+      <InfiniteScroll
+          pageStart={0}
+          loadMore={loadFunc}
+          hasMore={true || false}
+          loader={<div className="loader" key={0}>Loading ...</div>}
+          useWindow={false}
+      >
         <h1 className="py-10 items-center text-center font-bold text-3xl">
         <Typewriter
            options={{
@@ -68,7 +81,10 @@ const AllArticle = () => {
           </div>
         </div>
         ))}
+  </InfiniteScroll>
       </div>
+      
+
     );
 };
 

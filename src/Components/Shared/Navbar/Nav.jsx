@@ -130,7 +130,7 @@ const Nav = () => {
                   {user && !isAdmin && (
                     <Link to={"/dashboard/addArticle"}>
                       <li className="hover:text-fuchsia-600 transition border-b-2 border-fuchsia-100 hover:border-fuchsia-600 cursor-pointer">
-                        Add Article
+                       User Dashboard
                       </li>
                     </Link>
                   )}
