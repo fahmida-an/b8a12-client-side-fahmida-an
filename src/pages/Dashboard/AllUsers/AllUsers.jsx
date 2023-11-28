@@ -1,24 +1,24 @@
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import { FaTrash, FaUsers } from "react-icons/fa";
 import toast from "react-hot-toast"
 import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const AllUsers = () => {
     const {user} = useContext(AuthContext)
-    const axiosPublic = useAxiosPublic();
+    const axiosSecure = useAxiosSecure();
     const { data: users = [], refetch } = useQuery({
       queryKey: ["users"],
       queryFn: async () => {
-        const res = await axiosPublic.get("/users")
+        const res = await axiosSecure.get("/users")
         return res.data;
       },
     });
 
     
     const handleDelete = id => {
-       axiosPublic.delete(`/users/${id}`)
+       axiosSecure.delete(`/users/${id}`)
        .then(res => {
         console.log(res);
         if(res.data.deletedCount > 0){
@@ -29,7 +29,7 @@ const AllUsers = () => {
   }
   
     const handleMakeAdmin = user => {
-      axiosPublic.patch(`/users/admin/${user._id}`)
+      axiosSecure.patch(`/users/admin/${user._id}`)
       .then(res => {
           console.log(res);
           if(res.data.modifiedCount > 0){

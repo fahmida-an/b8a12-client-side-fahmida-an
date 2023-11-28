@@ -119,8 +119,8 @@ const AddArticle = () => {
       components={animatedComponents}
       isMulti={true}
       options={tabOptions}
-      defaultValue={[tabOptions[4], tabOptions[5]]}
       placeholder="Select News Tab"
+      className='text-sm'
       name="newstab"
       onChange={(options) => setSelectedOptions(options)}
     />

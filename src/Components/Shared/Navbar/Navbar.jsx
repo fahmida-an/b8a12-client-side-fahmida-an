@@ -7,7 +7,7 @@ const Navbar = () => {
                 <h2 className='text-4xl text-slate-900 font-bold'>News Channel</h2>
                 <p className='mt-1'>Date:{moment().format('MMMM Do YYYY, h:mm:ss a')} </p>
             </div>
-            <div className='bg-fuchsia-100 z-10'>
+            <div className='bg-fuchsia-100'>
             <Nav></Nav>
             </div>
         </>

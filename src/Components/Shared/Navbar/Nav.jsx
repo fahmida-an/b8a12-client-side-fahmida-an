@@ -31,15 +31,15 @@ const Nav = () => {
   };
   const content = (
     <>
-      <div className="lg:hidden block absolute top-16 w-full left-0 right-0 bg-slate-900 transition z-10">
-        <ul className="text-center text-xl p-20">
+      <div className="lg:hidden block absolute top-48 w-full left-0 right-0 bg-fuchsia-100 transition z-20">
+        <ul className="text-center text-xl text-slate-900 p-20">
           <Link to={"/"}>
-            <li className="my-4 py-4 border-b border-slate-800 hover:bg-slate-800 hover:rounded">
+            <li className="my-4 py-4 border-b border-slate-800 hover:bg-fuchsia-300 hover:rounded">
               Home
             </li>
           </Link>
           <Link to={"/allArticle"}>
-            <li className="my-4 py-4 border-b border-slate-800 hover:bg-slate-800 hover:rounded">
+            <li className="my-4 py-4 border-b border-slate-800 hover:bg-fuchsia-300 hover:rounded">
               All Article
             </li>
           </Link>
@@ -47,28 +47,25 @@ const Nav = () => {
           {user ? (
             <>
               <Link to={"/myArticle"}>
-                <li className="my-4 py-4 border-b border-slate-800 hover:bg-slate-800 hover:rounded">
+                <li className="my-4 py-4 border-b border-slate-800 hover:bg-fuchsia-300 hover:rounded">
                   My Article
                 </li>
               </Link>
               <Link to={"/premium"}>
-                <li className="my-4 py-4 border-b border-slate-800 hover:bg-slate-800 hover:rounded">
-                  Premium Member
+                <li className="my-4 py-4 border-b border-slate-800 hover:bg-fuchsia-300 hover:rounded">
+                  Premium News
                 </li>
               </Link>
 
               <Link>
                 <li
                   onClick={handleLogOut}
-                  className="my-4 py-4 border-b border-slate-800 hover:bg-slate-800 hover:rounded"
+                  className="my-4 py-4 border-b border-slate-800 hover:bg-fuchsia-400 hover:rounded"
                 >
                   Log Out
                 </li>
               </Link>
 
-              <Link>
-                <img className="w-20 h-20" src={user?.photoURL} alt="" />
-              </Link>
             </>
           ) : (
             <Link to={"/signup"}>
@@ -84,7 +81,7 @@ const Nav = () => {
 
   return (
     <nav>
-      <div className="h-10vh flex justify-between z-50 text-white lg:py-5 px-20 py-4">
+      <div className="h-10vh flex justify-between  text-white lg:py-5 px-20 py-4">
         <div className="flex items-center flex-1">
           <span className="text-3xl font-bold text-slate-900">TravelNews</span>
         </div>
@@ -105,30 +102,7 @@ const Nav = () => {
 
               {user ? (
                 <>
-                  {/* <li  onClick={() => setOnDash(!onDash)}>
-            
-
-                  
-            <div className="flex items-center justify-center hover:text-fuchsia-600 transition border-b-2 border-slate-900 hover:border-fuchsia-600 cursor-pointer ">
-            <span className="mr-1">Article</span>
-            {onDash ? <BiUpArrow /> :  <BiDownArrow/> }
-            </div>
-            {onDash && (
-            <div className="mt-10 transition absolute border shadow-xl w-52 text-center justify-center h-[100px] z-50 bg-fuchsia-100 rounded-b-xl">
-              
-              <li className="mb-2 p-2 hover:bg-fuchsia-200">
-                <Link to={"/myArticle"} className=" text-fuchsia-900">
-                  My Article
-                </Link>
-              </li>
-              <li className=" p-2 hover:bg-fuchsia-200">
-                <Link to={"/addArticle"} className="text-fuchsia-900">
-                 Add Article
-                </Link>
-              </li>
-            </div>
-          )}
-          </li> */}
+                 
 
                   {user && isPremium && (
                     <Link to={"/premiumArticle"}>
@@ -193,7 +167,7 @@ const Nav = () => {
 
         <div>{click && content}</div>
         <button className="block sm:hidden transition" onClick={handleClick}>
-          {click ? <FaTimes /> : <CiMenuFries />}
+          {click ? <FaTimes className="bg-slate-900" />   : <CiMenuFries className="bg-slate-900" />}
         </button>
       </div>
     </nav>
