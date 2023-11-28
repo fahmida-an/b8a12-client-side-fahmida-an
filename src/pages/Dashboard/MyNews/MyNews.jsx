@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import useNews from "../../../hooks/useNews";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const MyNews = () => {
   const [news] = useNews();
   const { user } = useContext(AuthContext);
-  const email = user.email;
+  const email = user?.email;
 
   const myNews = news.filter((item) => item.email === email);
   console.log(myNews);
@@ -32,6 +33,12 @@ const MyNews = () => {
           <div className="space-y-1">
             <h2 className="text-xl font-semibold ">{item.title}</h2>
             <p className="text-sm text-gray-600">{item.details}</p>
+          </div>
+          <div className="flex items-center justify-center">
+           <Link to={`/news/update/${item._id}`}>
+           <button className="btn btn-sm bg-yellow-500 hover:bg-yellow-400">Update</button>
+           </Link>
+            <button className="btn btn-sm bg-red-500 hover:bg-red-600">Delete</button>
           </div>
         </div>
       </div>

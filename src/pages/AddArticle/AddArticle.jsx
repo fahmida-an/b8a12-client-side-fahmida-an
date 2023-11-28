@@ -71,7 +71,7 @@ const AddArticle = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <h2 className="text-center py-6 font-bold text-4xl text-fuchsia-900">
-        Add a Service
+        Add Article
       </h2>
       <form  onSubmit={handleAddArticle} className="bg-fuchsia-100 max-w-4xl mx-auto rounded-lg shadow-xl">
         <div className="flex justify-between items-center px-8 pt-8">

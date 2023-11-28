@@ -19,6 +19,7 @@ import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import AllArticle from "../pages/AllArticle/AllArticle";
 import AllPublishedArticle from "../pages/Dashboard/AllPublishedArticle/AllPublishedArticle";
 import MyNews from "../pages/Dashboard/MyNews/MyNews";
+import UpdateNews from "../pages/UpdateNews/UpdateNews";
   
   const router = createBrowserRouter([
     {
@@ -55,6 +56,9 @@ import MyNews from "../pages/Dashboard/MyNews/MyNews";
         {
           path: "/allArticle",
           element: <AllArticle></AllArticle>
+        }, {
+          path: "/news/update/:id",
+          element: <UpdateNews></UpdateNews>
         }
         
       ]
