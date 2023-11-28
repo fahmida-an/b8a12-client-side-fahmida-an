@@ -1,12 +1,18 @@
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 const PublisherCard = ({ news }) => {
   const { title, image, details, newstab, publisher, date } = news;
   console.log(newstab);
   useEffect(() => {
     Aos.init();
   }, []);
+
+  const [showAll, setShowAll] = useState(false);
+
+  const handleShowAll = () => {
+    setShowAll(!showAll);
+  };
   return (
     <div className="mt-6">
       <div
@@ -25,14 +31,26 @@ const PublisherCard = ({ news }) => {
         <div className="flex flex-col justify-between p-6 space-y-4">
           <div className="space-y-1">
             <h2 className="text-xl font-semibold ">{title}</h2>
-            {/* {
-                details.length > 50 ? 
-                <p className="dark:text-gray-100">{details.slice(0,50)}</p>
-                :
-                <p className="dark:text-gray-100">{details}</p>
-            } */}
 
-            <p className="text-sm text-gray-600">{details}</p>
+
+        <div>
+      {showAll ? (
+        <p className="dark:text-gray-100">{details}</p>
+      ) : (
+        <p className="dark:text-gray-100">
+          {details.length > 200 ? `${details.slice(0, 200)}` : details}
+        </p>
+      )}
+
+      {details.length > 50 && (
+        <button
+          className="text-sm text-blue-500 cursor-pointer"
+          onClick={handleShowAll}
+        >
+          {showAll ? 'Read Less' : 'Read More..'}
+        </button>
+      )}
+    </div>
 
             <div>
               {Array.isArray(newstab) && newstab.length > 0

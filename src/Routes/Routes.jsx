@@ -20,6 +20,7 @@ import AllArticle from "../pages/AllArticle/AllArticle";
 import AllPublishedArticle from "../pages/Dashboard/AllPublishedArticle/AllPublishedArticle";
 import MyNews from "../pages/Dashboard/MyNews/MyNews";
 import UpdateNews from "../pages/UpdateNews/UpdateNews";
+import PremiumArticle from "../pages/PremiumArticle/PremiumArticle";
   
   const router = createBrowserRouter([
     {
@@ -59,6 +60,10 @@ import UpdateNews from "../pages/UpdateNews/UpdateNews";
         }, {
           path: "/news/update/:id",
           element: <UpdateNews></UpdateNews>
+        },
+        {
+          path: "/premiumArticle",
+          element:<PremiumArticle></PremiumArticle>
         }
         
       ]

@@ -8,10 +8,10 @@ import  Typewriter  from "typewriter-effect";
 
 const Publisher = () => {
    const [news] = useNews();
-  //  const [showAll, setShowAll] = useState(false);
   const {user} = useContext(AuthContext)
-  //  const newsAll = showAll ? news :  news.slice(0,6)
-   const newsAll = news.slice(0,6)
+  //  const newsAll = news.slice(0,6)
+   const newsPublish = news.filter(item => item.status === "approved")
+   const newsAll = newsPublish.slice(0,6)
   return (
 
     <>
@@ -35,14 +35,6 @@ const Publisher = () => {
         newsAll.map(news => <PublisherCard key={news.id} news={news}></PublisherCard>)
      }
 
-
-   {/* <div>
-   <button className="text-white bg-fuchsia-900 rounded-lg px-5 py-2.5 text-center mr-2 mb-2 mt-2 mx-auto" onClick={()=> setShowAll(!showAll)}>
-        {
-          showAll ? "Show Less" : 'Show All'
-        }
-      </button>
-   </div> */}
 
 {
   user ? <Link to={'/allArticle'}>

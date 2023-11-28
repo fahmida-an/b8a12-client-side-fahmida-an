@@ -23,7 +23,7 @@ const AllPublishedArticle = () => {
       console.log(res);
       if (res.data.modifiedCount > 0) {
         refetch();
-        toast.success(`${news.title} is admin now`);
+        toast.success(`${news.title} Approved`);
       }
     });
   };

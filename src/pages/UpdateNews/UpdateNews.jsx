@@ -42,6 +42,7 @@ const UpdateNews = () => {
         const publisher = form.publisher.value;
         const details = form.details.value;
         const date = form.date.value;
+        const article = form.article.value;
         const imageFile = form.image.files[0];
         const formData = new FormData();
         formData.append('image', imageFile);
@@ -61,6 +62,7 @@ const UpdateNews = () => {
             details,
             image: imageUrl,
             date,
+            article,
             email: user.email
           };
       
@@ -157,6 +159,24 @@ const UpdateNews = () => {
          
             </div>
           </div>
+
+       <div className='flex justify-between items-center px-8'>
+       <div className="form-control w-1/2 ml-2">
+            <label className="label">
+              <span className="label-text font-bold">Articles</span>
+            </label>
+           
+            <label className="input-group">
+              <select name="publisher" className="select select-bordered w-full ">
+                <option disabled selected>
+                Select
+                </option>
+                <option value="The New York Times">Premium</option>
+                <option value="The Guardian">normal</option>
+              </select>
+            </label>
+       
+          </div>
   
           <div className="form-control pl-8 w-1/2">
             <label className="label">
@@ -172,6 +192,7 @@ const UpdateNews = () => {
               />
             </label>
           </div>
+       </div>
   
           <div className="form-control px-8">
             <label className="label">

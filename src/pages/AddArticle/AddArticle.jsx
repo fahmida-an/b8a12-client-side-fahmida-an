@@ -29,6 +29,7 @@ const AddArticle = () => {
         const publisher = form.publisher.value;
         const details = form.details.value;
         const date = form.date.value;
+        const article = form.article.value;
         const imageFile = form.image.files[0];
         const formData = new FormData();
         formData.append('image', imageFile);
@@ -48,6 +49,7 @@ const AddArticle = () => {
             details,
             image: imageUrl,
             date,
+            article,
             email: user.email
           };
       
@@ -148,7 +150,8 @@ const AddArticle = () => {
           </div>
         </div>
 
-        <div className="form-control pl-8 w-1/2">
+        <div className='flex justify-between items-center px-8'>
+        <div className="form-control w-1/2">
           <label className="label">
             <span className="label-text font-bold">Date</span>
           </label>
@@ -160,6 +163,24 @@ const AddArticle = () => {
               required
             />
           </label>
+        </div>
+
+        <div className="form-control w-1/2 ml-2">
+            <label className="label">
+              <span className="label-text font-bold">Articles</span>
+            </label>
+           
+            <label className="input-group">
+              <select name="article" className="select select-bordered w-full ">
+                <option disabled selected>
+                Select premium or normal
+                </option>
+                <option value="Premium">Premium</option>
+                <option value="normal">normal</option>
+              </select>
+            </label>
+       
+          </div>
         </div>
 
         <div className="form-control px-8">
