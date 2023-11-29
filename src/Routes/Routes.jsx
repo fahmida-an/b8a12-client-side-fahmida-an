@@ -24,6 +24,7 @@ import PremiumArticle from "../pages/PremiumArticle/PremiumArticle";
 import AddPublisher from "../pages/AddPublisher/AddPublisher";
 import PrivateRoutes from "./PrivateRoutes";
 import RateUs from "../pages/RateUs/RateUs";
+import AllReviews from "../pages/AllReviews/AllReviews";
   
   const router = createBrowserRouter([
     {
@@ -69,6 +70,7 @@ import RateUs from "../pages/RateUs/RateUs";
           element:<PremiumArticle></PremiumArticle>
         }, 
         
+        
       ]
     },
     {
@@ -105,11 +107,17 @@ import RateUs from "../pages/RateUs/RateUs";
       {
         path: "addPublisher",
         element: <AddPublisher></AddPublisher>
-      }, {
+      }, 
+      {
 
         path: "rateus",
         element: <RateUs></RateUs>
+      },
+      {
+        path: "allReviews",
+        element: <AllReviews></AllReviews>
       }
+      
     
     ]
     },
