@@ -1,4 +1,3 @@
-import { useQuery } from "@tanstack/react-query";
 import { FaTrash, FaUsers } from "react-icons/fa";
 import toast from "react-hot-toast"
 import { useContext } from "react";
@@ -39,7 +38,7 @@ const AllUsers = () => {
           <h2 className="text-3xl">Total Users: {users.length}</h2>
         </div>
   
-        <div className="w-[800px] mx-auto overflow-x-auto overflow-y-auto">
+        <div className="overflow-x-auto overflow-y-auto w-[700px] mx-auto">
           <table className="table">
             <thead>
               <tr>

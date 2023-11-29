@@ -44,7 +44,6 @@ const AllPublishedArticle = () => {
               <th className="font-bold">Tab</th>
               <th className="font-bold">Date</th>
               <th className="font-bold">Action</th>
-              <th className="font-bold">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -56,21 +55,19 @@ const AllPublishedArticle = () => {
                 <td>{item.publisher}</td>
                 <td>{item.newstab}</td>
                 <td>{item.date}</td>
-            
-                    <td>
-                      {
-                        item.status === "approved" ? "APPROVED" :
-                     
-                      <button onClick={() => handleMakeApproved(item._id)}>
-                        Approve
-                      </button>
-                       }
-                    </td>
-                
+
                 <td>
+                  {item.status === "approved" ? (
+                    "APPROVED"
+                  ) : (
+                    <button onClick={() => handleMakeApproved(item._id)} className="btn btn-sm">
+                      Approve
+                    </button>
+                  )}
+
                   <button
                     onClick={() => handleDelete(item._id)}
-                    className="btn btn-sm"
+                    className="btn btn-sm mt-2"
                   >
                     <FaTrash className="text-red-600 bg-fuchsia-200"></FaTrash>
                   </button>

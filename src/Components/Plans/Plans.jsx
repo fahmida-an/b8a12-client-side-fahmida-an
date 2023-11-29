@@ -1,10 +1,26 @@
+import  Typewriter  from "typewriter-effect";
 const Plans = () => {
   return (
-    <div className="flex justify-evenly  mt-20">
+    <div className="bg-gray-100 h-[760px]">
+     <div className="text-center items-center justify-center pt-24 space-y-2">
+     <h2 className="text-4xl font-bold mb-4">
+      <Typewriter
+           options={{
+            autoStart: true,
+            loop: true,
+            delay: 200,
+            strings: 'User Plan'
+           }}
+           >
+           </Typewriter>
+      </h2>
+      <p>Discover the perfect plan for your needs! Whether you&apos;re seeking enhanced features, more flexibility, or premium benefits, we have a range of plans designed to cater to your preferences. Explore our options today and elevate your experience with us</p>
+     </div>
+      <div className="grid grid-cols-3 max-w-6xl mx-auto mt-16">
       <div className="items-center text-center flex">
         <a
           href="#"
-          className="inline-flex items-center px-3 py-2 text-x font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className="inline-flex items-center px-3 py-2 text-x font-medium text-center text-white bg-fuchsia-800 rounded-lg hover:bg-fuchsia-900 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
           See Our Plans
           <svg
@@ -24,49 +40,61 @@ const Plans = () => {
           </svg>
         </a>
       </div>
-      
-        <div className="w-72 h-[400px] bg-slate-200 border-2 border-gray-500 rounded-lg shadow flex items-center text-center">
-          <div className="p-5">
-            <h1 className="text-2xl font-bold">for free users</h1>
 
-            <h5 className="mb-2 text-xl  text-gray-900 ">
-              Latest News Feed
-            </h5>
-            <h5 className="mb-2 text-xl  text-gray-900 ">
-              Categories & Filters
-            </h5>
-            <h5 className="mb-2 text-xl  text-gray-900 ">
-              Breaking News Notifications
-            </h5>
-            <h5 className="mb-2 text-xl text-gray-900 ">
-              Save & Bookmark Articles
-            </h5>
-          </div>
+
+      <div className="max-w-xs p-6 text-center h-[400px] rounded-md shadow-md  bg-white dark:bg-gray-900 dark:text-gray-50">
+        <div className="mt-20 mb-2">
+          <h2 className="text-xl font-bold tracki">for free users</h2>
         </div>
-      
-
-      
-        <div className="w-72 h-[400px]  bg-slate-200 border-2 border-gray-500 rounded-lg shadow flex items-center text-center">
-          <div className="p-5">
-            <h1 className="text-fuchsia-900 text-2xl font-bold">for premium users</h1>
-
-            <h5 className="mb-2 text-xl  tracking-tight text-gray-900 ">
-              Ad-Free Experience
-            </h5>
-            <h5 className="mb-2 text-xl  tracking-tight text-gray-900 ">
-              Exclusive Content
-            </h5>
-            <h5 className="mb-2 text-xl  tracking-tight text-gray-900 ">
-              Early Access to Articles
-            </h5>
-            <h5 className="mb-2 text-xl  tracking-tight text-gray-900 ">
-              Customized News Alerts
-            </h5>
-          </div>
-        </div>
+        <p className="dark:text-gray-100 p-2">
+        1. Latest News Feed
+        </p>
+        <hr />
+        <p className="dark:text-gray-100 p-2">
+        2. Categories & Filters
+        </p>
+        <hr />
+        <p className="dark:text-gray-100 p-2">
+        3. Breaking News Notifications
+        </p>
+        <hr />
+        <p className="dark:text-gray-100 p-2">
+        4. Save & Bookmark Articles
+        </p>
+        <hr />
+        <button className="btn btn-sm bg-slate-600 mt-2 p-2">Upgrade</button>
       </div>
-   
 
+      {/* 2 */}
+      <div className="max-w-xs text-center h-[400px] p-6 rounded-md shadow-md bg-white dark:bg-gray-900 dark:text-gray-50">
+       
+        <div className="mt-20 mb-2">
+          <h2 className="text-xl  tracki font-bold">for premium users</h2>
+        </div>
+        <p className="dark:text-gray-100 p-2">
+        1. Ad-Free Experience
+        </p>
+        <hr />
+        <p className="dark:text-gray-100 p-2">
+        2. Exclusive Content
+        </p>
+        <hr />
+        <p className="dark:text-gray-100 p-2">
+        3. Early Access to Articles
+        </p>
+        <hr />
+        <p className="dark:text-gray-100 p-2">
+        4. Customized News Alerts
+        </p>
+        <hr />
+        <button className="btn btn-sm bg-slate-600 mt-2 p-2">Upgrade</button>
+      </div>
+
+
+        {/* 3 */}
+  
+    </div>
+    </div>
   );
 };
 

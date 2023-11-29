@@ -3,9 +3,10 @@ import toast from 'react-hot-toast'
 import { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { FaGoogle } from 'react-icons/fa6';
+import { SaveUser } from '../../api/auth';
 
 const Login = () => {
-    const {logInUser } = useContext(AuthContext)
+    const {logInUser,  signInWithGoogle } = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
     const from = location?.state?.from?.pathname || '/' 
@@ -24,6 +25,21 @@ const Login = () => {
           toast.error(err?.message)
         }
       }
+
+      
+    const handleGoogleSignIn = async () => {
+      try {
+        const result = await signInWithGoogle()
+        const dbResponse = await SaveUser(result?.user)
+        console.log(dbResponse)
+        navigate('/')
+        toast.success('Signup Successful')
+      } catch (err) {
+        console.log(err)
+        toast.error(err?.message)
+      }
+    }
+
     return (
         <div className='flex justify-center items-center min-h-screen'>
         <div className='flex flex-col w-[500px] p-6 rounded-md sm:p-10 bg-fuchsia-100 text-slate-900'>
@@ -88,7 +104,7 @@ const Login = () => {
             
             <div className='flex-1 h-px sm:w-16'></div>
           </div>
-          <div className='flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer'>
+          <div onClick={handleGoogleSignIn} className='flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer'>
             <p>Login with Google</p>
             <FaGoogle></FaGoogle> 
            </div>

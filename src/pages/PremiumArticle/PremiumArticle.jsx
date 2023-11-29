@@ -1,6 +1,7 @@
 import { useState } from "react";
 import useNews from "../../hooks/useNews";
 import Typewriter from "typewriter-effect";
+import InfiniteScroll from 'react-infinite-scroller';
 const PremiumArticle = () => {
   const [news] = useNews();
   const premiumNews = news.filter((item) => item.article === "Premium");
@@ -10,8 +11,18 @@ const PremiumArticle = () => {
   const handleShowAll = () => {
     setShowAll(!showAll);
   };
+  const loadFunc = () => {
+  };
   return (
-    <div className="max-w-5xl mx-auto bg-fuchsia-100">
+    <div className="max-w-screen-xl mx-auto bg-fuchsia-50 " style={{ height: '650px', overflow: 'auto' }}>
+
+      <InfiniteScroll
+          pageStart={0}
+          loadMore={loadFunc}
+          hasMore={true || false}
+          loader={<div className="loader" key={0}>Loading ...</div>}
+          useWindow={false}
+      >
       <h1 className="pt-10 pb-5 items-center text-center font-bold text-3xl ">
         <Typewriter
           options={{
@@ -74,7 +85,8 @@ const PremiumArticle = () => {
           </div>
         </div>
       ))}
-    </div>
+   </InfiniteScroll>
+      </div>
   );
 };
 

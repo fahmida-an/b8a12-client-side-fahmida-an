@@ -21,6 +21,9 @@ import AllPublishedArticle from "../pages/Dashboard/AllPublishedArticle/AllPubli
 import MyNews from "../pages/Dashboard/MyNews/MyNews";
 import UpdateNews from "../pages/UpdateNews/UpdateNews";
 import PremiumArticle from "../pages/PremiumArticle/PremiumArticle";
+import AddPublisher from "../pages/AddPublisher/AddPublisher";
+import PrivateRoutes from "./PrivateRoutes";
+import RateUs from "../pages/RateUs/RateUs";
   
   const router = createBrowserRouter([
     {
@@ -51,12 +54,12 @@ import PremiumArticle from "../pages/PremiumArticle/PremiumArticle";
         {
           path: "/news/:id",
           element: <NewsDetails></NewsDetails>,
-          // loader: ({params}) => fetch(`http://localhost:5000/news/${params.id}`)
+          // loader: ({params}) => fetch(`https://y-two-eosin.vercel.app/news/${params.id}`)
 
         },
         {
           path: "/allArticle",
-          element: <AllArticle></AllArticle>
+          element: <PrivateRoutes><AllArticle></AllArticle></PrivateRoutes>
         }, {
           path: "/news/update/:id",
           element: <UpdateNews></UpdateNews>
@@ -64,7 +67,7 @@ import PremiumArticle from "../pages/PremiumArticle/PremiumArticle";
         {
           path: "/premiumArticle",
           element:<PremiumArticle></PremiumArticle>
-        }
+        }, 
         
       ]
     },
@@ -98,6 +101,14 @@ import PremiumArticle from "../pages/PremiumArticle/PremiumArticle";
       {
         path: "allpublishedArticle",
         element: <AllPublishedArticle></AllPublishedArticle>
+      }, 
+      {
+        path: "addPublisher",
+        element: <AddPublisher></AddPublisher>
+      }, {
+
+        path: "rateus",
+        element: <RateUs></RateUs>
       }
     
     ]

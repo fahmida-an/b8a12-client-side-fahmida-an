@@ -9,6 +9,8 @@ import Modal from 'react-awesome-modal';
 import useRole from '../../hooks/useRole';
 import { Link } from 'react-router-dom';
 import Navbar from '../../Components/Shared/Navbar/Navbar';
+import TeamSection from '../../Components/TeamSection/TeamSection';
+import Testimonial from '../../Components/Testimonial/Testimonial';
 
 const Home = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -35,6 +37,8 @@ const Home = () => {
       <Publisher />
       <Statistics />
       <Plans />
+      <TeamSection />
+      <Testimonial />
       <Footer />
     {
         role === 'normal' &&

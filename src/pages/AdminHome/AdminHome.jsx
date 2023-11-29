@@ -19,7 +19,7 @@ const AdminHome = () => {
            >
            </Typewriter>
       </h2>
-      <div className="grid lg:grid-cols-4 grid-cols-1 gap-6 ">
+      <div className=" max-w-3xl mx-auto grid lg:grid-cols-4 grid-cols-1 gap-6 ">
        <div>
        <a
           href="#"

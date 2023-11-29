@@ -68,16 +68,17 @@ const UpdateNews = () => {
       
           console.log(updateArticle);
           const newsRes = await axiosPublic.put(`/news/${id}`, updateArticle);
-          if (newsRes.data.modifiedCount > 0) {
+          if (newsRes.modifiedCount > 0) {
             form.reset();
             console.log('Form Reset');
             toast.success('Article Updated');
+          } else {
+            console.log(' updated:', newsRes);
+            toast.success('Updated!');
           }
-        }
-        
-        catch (error) {
-          console.error(error);
-          toast.error('Article not Updated!')
+        } catch (error) {
+          console.error('Error updating article:', error);
+          toast.error('Article not Updated!');
         }
       };
     return (
@@ -86,8 +87,8 @@ const UpdateNews = () => {
           Update News
         </h2>
         <form onSubmit={handleUpdateArticle} className="bg-fuchsia-100 max-w-4xl mx-auto rounded-lg shadow-xl">
-          <div className="flex justify-between items-center px-8 pt-8">
-            <div className="form-control w-1/2">
+       
+            <div className="form-control px-8 w-full pt-8">
               <label className="label">
                 <span className="label-text font-bold">Title</span>
               </label>
@@ -102,14 +103,20 @@ const UpdateNews = () => {
                 />
               </label>
             </div>
+         
   
-            <div className="form-control w-1/2 ml-2">
+       <div className='flex'>
+       <div className='form-control w-32 h-32 ml-8 mt-8'>
+              <img src={newsCard.image} alt="" />
+              </div>
+  
+
+            <div className="form-control w-full px-8 mt-2">
               <label className="label">
                 <span className="label-text font-bold">Image</span>
               </label>
               <label className="input-group">
                 <input
-                defaultValue={newsCard.imageUrl}
                   required
                   type="file"
                   id="image"
@@ -120,7 +127,9 @@ const UpdateNews = () => {
                 />
               </label>
             </div>
-          </div>
+       </div>
+
+        
   
   
           <div className='flex justify-between items-center px-8'>
@@ -161,13 +170,13 @@ const UpdateNews = () => {
           </div>
 
        <div className='flex justify-between items-center px-8'>
-       <div className="form-control w-1/2 ml-2">
+       <div className="form-control w-1/2">
             <label className="label">
               <span className="label-text font-bold">Articles</span>
             </label>
            
             <label className="input-group">
-              <select name="publisher" className="select select-bordered w-full ">
+              <select name="article" className="select select-bordered w-full ">
                 <option disabled selected>
                 Select
                 </option>
@@ -208,7 +217,8 @@ const UpdateNews = () => {
               />
             </label>
           </div>
-  
+
+         
           <div className="py-4 px-8 flex items-center justify-center">
             <input type="submit" value="Update Article" className="w-1/2 tems-center text-white bg-fuchsia-900 px-5 py-2.5 text-center rounded-lg"  />
   

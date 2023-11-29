@@ -4,9 +4,11 @@ import { FaTimes } from "react-icons/fa";
 import { CiMenuFries } from "react-icons/ci";
 import { useState } from "react";
 
+
 const Dashboard = () => {
   const [isAdmin] = useAdmin();
   const [click, setClick] = useState(false);
+  
   const handleClick = () => {
     setClick(!click);
   };
@@ -56,14 +58,14 @@ const Dashboard = () => {
                 </li>
                 <li>
                   <NavLink
-                    to={"statistics"}
+                    to={"addPublisher"}
                     className={({ isActive }) =>
                       isActive
                         ? "flex items-center p-2 rounded-lg bg-fuchsia-900 text-white  group"
                         : "flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-fuchsia-900 hover:text-white dark:hover:bg-gray-700 group"
                     }
                   >
-                    <span className="ms-3">Statistics</span>
+                    <span className="ms-3">Add Publisher</span>
                   </NavLink>
                 </li>
               </>
@@ -113,11 +115,7 @@ const Dashboard = () => {
                 <span className="flex-1 ms-3 whitespace-nowrap">Profile</span>
               </NavLink>
             </li>
-            <li>
-              <NavLink className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-fuchsia-900 hover:text-white dark:hover:bg-gray-700 group">
-                <span className="flex-1 ms-3 whitespace-nowrap">LogOut</span>
-              </NavLink>
-            </li>
+            
           </ul>
         </div>
       
@@ -180,14 +178,14 @@ const Dashboard = () => {
                 </li>
                 <li>
                   <NavLink
-                    to={"statistics"}
+                    to={"addPublisher"}
                     className={({ isActive }) =>
                       isActive
                         ? "flex items-center p-2 rounded-lg bg-fuchsia-900 text-white  group"
                         : "flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-fuchsia-900 hover:text-white dark:hover:bg-gray-700 group"
                     }
                   >
-                    <span className="ms-3">Statistics</span>
+                    <span className="ms-3">Add Publisher</span>
                   </NavLink>
                 </li>
               </>
@@ -217,6 +215,19 @@ const Dashboard = () => {
                     <span className="ms-3">My Article</span>
                   </NavLink>
                 </li>
+
+                <li>
+                  <NavLink
+                    to={"rateus"}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "flex items-center p-2 rounded-lg bg-fuchsia-900 text-white  group"
+                        : "flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-fuchsia-900 hover:text-white dark:hover:bg-gray-700 group"
+                    }
+                  >
+                    <span className="ms-3">Rate us</span>
+                  </NavLink>
+                </li>
               </>
             )}
           </ul>
@@ -237,11 +248,7 @@ const Dashboard = () => {
                 <span className="flex-1 ms-3 whitespace-nowrap">Profile</span>
               </NavLink>
             </li>
-            <li>
-              <NavLink className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-fuchsia-900 hover:text-white dark:hover:bg-gray-700 group">
-                <span className="flex-1 ms-3 whitespace-nowrap">LogOut</span>
-              </NavLink>
-            </li>
+           
           </ul>
         </div>
       </aside>

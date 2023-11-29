@@ -4,9 +4,10 @@ import useAuth from '../../hooks/useAuth';
 import { SaveUser } from '../../api/auth';
 import {toast} from 'react-hot-toast'
 import { FaGoogle } from 'react-icons/fa';
+import { useState } from 'react';
 const SignUp = () => {
-
-    const {createUser, updateUserProfile} = useAuth()
+  const [registerError, setRegisterError] = useState("");
+    const {createUser, updateUserProfile, signInWithGoogle} = useAuth()
     const navigate = useNavigate()
     //form submit handler
     const handleSubmit = async event => {
@@ -17,7 +18,16 @@ const SignUp = () => {
       const password = form.password.value;
       const image = form.image.files[0]
     
-  
+      if (password.length < 6) {
+        setRegisterError("Password Length should be 6 characters long");
+        return;
+    } else if (!/[!@#$%^&*()[\]{}|\\;:'"<>,.?/\-_+=]+/.test(password)) {
+        setRegisterError("Error: Password should contain at least one special character.");
+        return;
+    } else if (!/[A-Z]/.test(password)) {
+        setRegisterError("Error: Password should contain at least one uppercase character.");
+        return;
+    }
       try{
         const imageData = await imageUpload(image)
 
@@ -38,6 +48,23 @@ const SignUp = () => {
   
   
     }
+
+    const handleGoogleSignIn = async () => {
+      try {
+        const result = await signInWithGoogle()
+        const dbResponse = await SaveUser(result?.user)
+        console.log(dbResponse)
+        navigate('/')
+        toast.success('Signup Successful')
+      } catch (err) {
+        console.log(err)
+        toast.error(err?.message)
+      }
+    }
+
+
+
+    
   
     return (
         <div className='flex justify-center items-center min-h-screen'>
@@ -117,7 +144,12 @@ const SignUp = () => {
             </button>
           </div>
         </form>
-        <div className='flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer'>
+
+        {registerError && (
+          <p className="text-red text-center mb-2">{registerError}</p>
+        )}
+
+        <div onClick={handleGoogleSignIn} className='flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer'>
           <p>Continue with Google</p>
           <FaGoogle></FaGoogle>
         </div>

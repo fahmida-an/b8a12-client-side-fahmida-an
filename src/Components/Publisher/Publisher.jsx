@@ -1,17 +1,23 @@
 import PublisherCard from "./PublisherCard";
 import useNews from "../../hooks/useNews";
 import { useContext } from "react";
-import CategoryCard from "./CategoryCard";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Link } from "react-router-dom";
 import  Typewriter  from "typewriter-effect";
+import CategoryCard from "./CategoryCard";
 
 const Publisher = () => {
    const [news] = useNews();
   const {user} = useContext(AuthContext)
   //  const newsAll = news.slice(0,6)
    const newsPublish = news.filter(item => item.status === "approved")
-   const newsAll = newsPublish.slice(0,6)
+   const newsAll = newsPublish.slice(0,5)
+   console.log(newsAll);
+   const sortedNews = newsAll.sort((a, b) => {
+    // localeCompare is use for sorting
+    return b.date.localeCompare(a.date);
+  });
+
   return (
 
     <>
@@ -32,7 +38,7 @@ const Publisher = () => {
     <div className="mt-10 grid grid-cols-1 lg:grid-cols-3">
      <div className="lg:grid-cols-1 grid grid-cols-1 lg:col-span-2 gap-2 mx-auto">
      {
-        newsAll.map(news => <PublisherCard key={news.id} news={news}></PublisherCard>)
+        sortedNews.map(news => <PublisherCard key={news.id} news={news}></PublisherCard>)
      }
 
 
@@ -49,13 +55,9 @@ const Publisher = () => {
 
 
      </div>
-
-     <div className="mx-auto">
-       {
-        newsAll.map(news => <CategoryCard key={news.id} news={news}></CategoryCard>)
-       }
+     <div className="mt-6">
+      <CategoryCard></CategoryCard>
      </div>
-
      
     </div>
     </>
