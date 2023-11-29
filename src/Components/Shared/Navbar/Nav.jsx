@@ -46,16 +46,12 @@ const Nav = () => {
 
           {user ? (
             <>
-              <Link to={"/myArticle"}>
+              <Link to={"/#"}>
                 <li className="my-4 py-4 border-b border-slate-800 hover:bg-fuchsia-300 hover:rounded">
-                  My Article
+                  User Dashboard
                 </li>
               </Link>
-              <Link to={"/premium"}>
-                <li className="my-4 py-4 border-b border-slate-800 hover:bg-fuchsia-300 hover:rounded">
-                  Premium News
-                </li>
-              </Link>
+              
 
               <Link>
                 <li

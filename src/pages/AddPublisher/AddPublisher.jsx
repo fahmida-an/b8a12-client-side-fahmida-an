@@ -1,5 +1,6 @@
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import {toast} from "react-hot-toast"
+import { Helmet } from "react-helmet-async";
 
 const AddPublisher = () => {
     const axiosPublic = useAxiosPublic();
@@ -24,6 +25,10 @@ const AddPublisher = () => {
     }
         
     return (
+     <>
+       <Helmet>
+      <title>NewsChannel || Add Publisher</title>
+    </Helmet>
         <div className="max-w-4xl mx-auto">
       <h2 className="text-center py-6 font-bold text-4xl text-fuchsia-900">
         Add Publisher
@@ -67,6 +72,7 @@ const AddPublisher = () => {
         
       </form>
     </div>
+     </>
     );
 };
 

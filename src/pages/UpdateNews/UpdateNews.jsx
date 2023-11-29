@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import useNews from "../../hooks/useNews";
 import { useParams } from "react-router-dom";
 import useAxiosPublic from '../../hooks/useAxiosPublic';
+import { Helmet } from "react-helmet-async";
 import { AuthContext } from '../../Provider/AuthProvider';
 const animatedComponents = makeAnimated();
 const image_hosting_key = import.meta.env.VITE_IMGBB_API_KEY;
@@ -83,10 +84,13 @@ const UpdateNews = () => {
       };
     return (
         <div className="max-w-4xl mx-auto">
+             <Helmet>
+    <title>NewsChannel || Update News</title>
+  </Helmet>
         <h2 className="text-center py-6 font-bold text-4xl text-fuchsia-900">
           Update News
         </h2>
-        <form onSubmit={handleUpdateArticle} className="bg-fuchsia-100 max-w-4xl mx-auto rounded-lg shadow-xl">
+        <form onSubmit={handleUpdateArticle} className="bg-fuchsia-100 w-[350px] lg:w-[800px] mx-auto rounded-lg shadow-xl">
        
             <div className="form-control px-8 w-full pt-8">
               <label className="label">

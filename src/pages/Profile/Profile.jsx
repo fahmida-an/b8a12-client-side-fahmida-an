@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Profile = () => {
     const { user } = useContext(AuthContext);
@@ -30,6 +31,9 @@ const Profile = () => {
      
     
 <div className="w-full mt-24 max-w-xl mx-auto h-[400px] bg-fuchsia-100  border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+<Helmet>
+    <title>NewsChannel || Profile</title>
+  </Helmet>
    <Link to={'/'}>
    <div className="flex justify-end p-6"><p className="text-xl font-bold text-fuchsia-900 underline">Back</p></div>
    </Link>

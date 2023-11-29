@@ -41,8 +41,8 @@ const PremiumCard = ({ premium }) => {
         />
       </div>
 
-      <div className="flex justify-between max-w-5xl mx-auto mt-10">
-        <div className="flex-1">
+      <div className="grid grid-cols-1 lg:grid-cols-2 justify-between p-10 max-w-5xl mx-auto mt-10">
+        <div className="">
             <h2 className="font-bold text-3xl mb-3">Advantages of Premium User</h2>
             <p className="mt-2">
 
@@ -82,7 +82,7 @@ const PremiumCard = ({ premium }) => {
             </p>
             
         </div>
-        <div className="max-w-xl h-[300px] mx-auto mt-3 py-12 bg-fuchsia-100 flex-1">
+        <div className="w-[300px] h-[300px] mx-auto mt-5 py-12 bg-fuchsia-100 flex-1">
           <h2 className="text-center p-4 font-bold">Package Name:{name}</h2>
           <p className="text-center px-4 font-bold"> package price: {price}</p>
           <div className="flex justify-center items-center px-4">

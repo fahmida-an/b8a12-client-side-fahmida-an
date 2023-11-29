@@ -2,6 +2,7 @@ import { FaTrash } from "react-icons/fa";
 import useNews from "../../../hooks/useNews";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { toast } from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const AllPublishedArticle = () => {
   const [news, refetch] = useNews();
@@ -29,6 +30,9 @@ const AllPublishedArticle = () => {
   };
   return (
     <div className="bg-fuchsia-100">
+      <Helmet>
+    <title>NewsChannel || Published Article</title>
+  </Helmet>
       <div className="flex text-center items-center justify-center font-bold py-10 border-b-2 border rounded-lg ">
         <h2 className="text-3xl">Total Published Article:{news.length}</h2>
       </div>

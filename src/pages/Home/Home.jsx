@@ -29,7 +29,7 @@ const Home = () => {
   return (
     <div>
       <Helmet>
-        <title>NewsPaper || Home</title>
+        <title>NewsChannel || Home</title>
       </Helmet>
     
      <Navbar></Navbar>

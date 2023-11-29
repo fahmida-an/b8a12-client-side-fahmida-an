@@ -1,8 +1,17 @@
-# React + Vite
+# NewsChannel
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## [ Visit Our Website ](https://)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+News Channel is a newspaper, where user can get all the latest news by using this website.
+
+`Project Features:`
+- Email Login and Registration Authentication
+- Google Login Authentication 
+- Private Route 
+- User can see news 
+- User can get access premium news
+- jwt secure
+- admin can update, delete news 
+- admin have approve news

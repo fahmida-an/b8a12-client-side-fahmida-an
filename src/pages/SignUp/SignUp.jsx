@@ -5,6 +5,7 @@ import { SaveUser } from '../../api/auth';
 import {toast} from 'react-hot-toast'
 import { FaGoogle } from 'react-icons/fa';
 import { useState } from 'react';
+import { Helmet } from "react-helmet-async";
 const SignUp = () => {
   const [registerError, setRegisterError] = useState("");
     const {createUser, updateUserProfile, signInWithGoogle} = useAuth()
@@ -68,6 +69,9 @@ const SignUp = () => {
   
     return (
         <div className='flex justify-center items-center min-h-screen'>
+          <Helmet>
+    <title>NewsChannel || SignUp</title>
+  </Helmet>
       <div className='flex flex-col w-[500px] p-6 rounded-md sm:p-10 bg-fuchsia-100 text-slate-900'>
         <div className='mb-8 text-center bg-slate-900 text-white'>
           <h1 className='my-3 text-4xl font-bold'>SignUp Here</h1>

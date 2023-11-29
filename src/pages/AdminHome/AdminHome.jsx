@@ -3,6 +3,7 @@ import useNews from "../../hooks/useNews";
 import useUsers from "../../hooks/useUsers";
 import ReactChart from "../../Components/ReactChart/ReactChart";
 import useTestimonial from "../../hooks/useTestimonial";
+import { Helmet } from "react-helmet-async";
 const AdminHome = () => {
     const [news] = useNews();
     const[users] = useUsers();
@@ -10,6 +11,9 @@ const AdminHome = () => {
     const publishedNews = news.filter(item=> item.status === "approved")
   return (
     <div>
+       <Helmet>
+      <title>NewsChannel || Admin Home</title>
+    </Helmet>
       <h2 className="pb-12 pt-3 text-center items-center text-3xl font-bold">
       <Typewriter
            options={{

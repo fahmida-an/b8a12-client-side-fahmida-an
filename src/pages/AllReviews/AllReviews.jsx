@@ -1,11 +1,14 @@
 import useTestimonial from "../../hooks/useTestimonial";
-
+import { Helmet } from "react-helmet-async";
 const AllReviews = () => {
   const [testimonial]=useTestimonial()
  
 
   return (
     <div className="bg-fuchsia-100">
+      <Helmet>
+    <title>NewsChannel || Reviews</title>
+  </Helmet>
       <div className="flex text-center items-center justify-center font-bold py-10 border-b-2 border rounded-lg ">
         <h2 className="text-3xl">Total Reviews:{testimonial.length}</h2>
       </div>

@@ -1,5 +1,5 @@
 import { Rating } from "@smastrom/react-rating";
-
+import { Helmet } from "react-helmet-async";
 import "@smastrom/react-rating/style.css";
 import { useState } from "react";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
@@ -33,12 +33,15 @@ const RateUs = () => {
 
   return (
     <div className="max-w-4xl mx-auto">
+      <Helmet>
+    <title>NewsChannel || Profile</title>
+  </Helmet>
       <h2 className="text-center py-6 font-bold text-4xl text-fuchsia-900">
-        Add Publisher
+        Rate Us
       </h2>
       <form
         onSubmit={handleAddReviews}
-        className="bg-fuchsia-100 w-[700px] mx-auto rounded-lg shadow-xl"
+        className="bg-fuchsia-100 w-[300px] lg:w-[800px] mx-auto rounded-lg shadow-xl"
       >
         <div className="form-control w-full px-8 pt-8">
           <label className="label">
@@ -80,7 +83,7 @@ const RateUs = () => {
         <div className="py-4 px-8 flex items-center justify-center">
           <input
             type="submit"
-            value="Add Article"
+            value="Add "
             className="w-1/2 tems-center text-white bg-fuchsia-900 px-5 py-2.5 text-center rounded-lg"
           />
         </div>

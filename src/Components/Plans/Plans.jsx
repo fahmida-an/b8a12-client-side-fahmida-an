@@ -1,7 +1,7 @@
 import  Typewriter  from "typewriter-effect";
 const Plans = () => {
   return (
-    <div className="bg-gray-100 h-[760px]">
+    <div className="bg-gray-100  ">
      <div className="text-center items-center justify-center pt-24 space-y-2">
      <h2 className="text-4xl font-bold mb-4">
       <Typewriter
@@ -16,8 +16,8 @@ const Plans = () => {
       </h2>
       <p>Discover the perfect plan for your needs! Whether you&apos;re seeking enhanced features, more flexibility, or premium benefits, we have a range of plans designed to cater to your preferences. Explore our options today and elevate your experience with us</p>
      </div>
-      <div className="grid grid-cols-3 max-w-6xl mx-auto mt-16">
-      <div className="items-center text-center flex">
+      <div className="grid grid-cols-1 lg:grid-cols-3 max-w-6xl mx-auto gap-3 mt-16">
+      <div className="items-center text-center">
         <a
           href="#"
           className="inline-flex items-center px-3 py-2 text-x font-medium text-center text-white bg-fuchsia-800 rounded-lg hover:bg-fuchsia-900 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
@@ -42,7 +42,7 @@ const Plans = () => {
       </div>
 
 
-      <div className="max-w-xs p-6 text-center h-[400px] rounded-md shadow-md  bg-white dark:bg-gray-900 dark:text-gray-50">
+      <div className="w-[300px] mx-auto p-6 text-center h-[400px] rounded-md shadow-md  bg-white dark:bg-gray-900 dark:text-gray-50">
         <div className="mt-20 mb-2">
           <h2 className="text-xl font-bold tracki">for free users</h2>
         </div>
@@ -66,7 +66,7 @@ const Plans = () => {
       </div>
 
       {/* 2 */}
-      <div className="max-w-xs text-center h-[400px] p-6 rounded-md shadow-md bg-white dark:bg-gray-900 dark:text-gray-50">
+      <div className="w-[300px] mx-auto text-center h-[400px] p-6 rounded-md shadow-md bg-white dark:bg-gray-900 dark:text-gray-50">
        
         <div className="mt-20 mb-2">
           <h2 className="text-xl  tracki font-bold">for premium users</h2>

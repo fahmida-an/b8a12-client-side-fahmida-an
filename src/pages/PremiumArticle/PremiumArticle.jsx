@@ -2,6 +2,7 @@ import { useState } from "react";
 import useNews from "../../hooks/useNews";
 import Typewriter from "typewriter-effect";
 import InfiniteScroll from 'react-infinite-scroller';
+import { Helmet } from "react-helmet-async";
 const PremiumArticle = () => {
   const [news] = useNews();
   const premiumNews = news.filter((item) => item.article === "Premium");
@@ -15,6 +16,9 @@ const PremiumArticle = () => {
   };
   return (
     <div className="max-w-screen-xl mx-auto bg-fuchsia-50 " style={{ height: '650px', overflow: 'auto' }}>
+       <Helmet>
+    <title>NewsChannel || Premium Aritcle</title>
+  </Helmet>
 
       <InfiniteScroll
           pageStart={0}

@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
-
+import { Helmet } from "react-helmet-async";
 const ErrorPage = () => {
     return (
         <>
+        <Helmet>
+      <title>NewsChannel || Error  </title>
+    </Helmet>
         <main className="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
         <div className="text-center">
           <p className="text-base font-semibold text-fuchsia-800">404</p>

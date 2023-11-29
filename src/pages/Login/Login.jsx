@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { FaGoogle } from 'react-icons/fa6';
 import { SaveUser } from '../../api/auth';
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
     const {logInUser,  signInWithGoogle } = useContext(AuthContext)
@@ -41,6 +42,11 @@ const Login = () => {
     }
 
     return (
+      <>
+       <Helmet>
+    <title>NewsChannel || Reviews</title>
+  </Helmet>
+  
         <div className='flex justify-center items-center min-h-screen'>
         <div className='flex flex-col w-[500px] p-6 rounded-md sm:p-10 bg-fuchsia-100 text-slate-900'>
           <div className='mb-8 text-center bg-slate-900 rounded-md'>
@@ -120,6 +126,7 @@ const Login = () => {
           </p>
         </div>
       </div>
+      </>
     );
 };
 

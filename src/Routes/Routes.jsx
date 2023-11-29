@@ -38,7 +38,7 @@ import AllReviews from "../pages/AllReviews/AllReviews";
         },
         {
           path: "/premium",
-          element: <Premium></Premium>
+          element: <PrivateRoutes><Premium></Premium></PrivateRoutes>
         },
         // {
         //   path: "premiumPackage",
@@ -46,11 +46,11 @@ import AllReviews from "../pages/AllReviews/AllReviews";
         // },
         {
             path:'/payment',
-            element: <Payment></Payment>
+            element: <PrivateRoutes><Payment></Payment></PrivateRoutes>
         }, 
         {
           path: '/profile',
-          element: <Profile></Profile>
+          element: <PrivateRoutes><Profile></Profile></PrivateRoutes>
         },
         {
           path: "/news/:id",
@@ -63,11 +63,11 @@ import AllReviews from "../pages/AllReviews/AllReviews";
           element: <PrivateRoutes><AllArticle></AllArticle></PrivateRoutes>
         }, {
           path: "/news/update/:id",
-          element: <UpdateNews></UpdateNews>
+          element: <PrivateRoutes><UpdateNews></UpdateNews></PrivateRoutes>
         },
         {
           path: "/premiumArticle",
-          element:<PremiumArticle></PremiumArticle>
+          element:<PrivateRoutes><PremiumArticle></PremiumArticle></PrivateRoutes>
         }, 
         
         
@@ -80,33 +80,33 @@ import AllReviews from "../pages/AllReviews/AllReviews";
       children: [
         {
         path: "adminHome",
-        element:<AdminHome></AdminHome>
+        element:<PrivateRoutes><AdminHome></AdminHome></PrivateRoutes>
       },
       {
         path: "allUsers",
-        element:<AllUsers></AllUsers>
+        element:<PrivateRoutes><AllUsers></AllUsers></PrivateRoutes>
       },
       {
         path: "userHome",
-        element: <UserHome></UserHome>
+        element: <PrivateRoutes><UserHome></UserHome></PrivateRoutes>
       }, 
 
       
       {
         path: "addArticle",
-        element: <AddArticle></AddArticle>
+        element: <PrivateRoutes><AddArticle></AddArticle></PrivateRoutes>
       },
       {
         path: "mynews",
-        element: <MyNews></MyNews>
+        element: <PrivateRoutes><MyNews></MyNews></PrivateRoutes>
       },
       {
         path: "allpublishedArticle",
-        element: <AllPublishedArticle></AllPublishedArticle>
+        element: <PrivateRoutes><AllPublishedArticle></AllPublishedArticle></PrivateRoutes>
       }, 
       {
         path: "addPublisher",
-        element: <AddPublisher></AddPublisher>
+        element: <PrivateRoutes><AddPublisher></AddPublisher></PrivateRoutes>
       }, 
       {
 

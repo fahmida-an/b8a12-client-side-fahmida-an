@@ -17,7 +17,7 @@ const PublisherCard = ({ news }) => {
     <div className="mt-6">
       <div
         data-aos="fade-up"
-        className=" w-[800px] rounded-md shadow-md dark:bg-gray-900 "
+        className="sm:w-[350px] md:w-[500px] lg:w-[800px] rounded-md shadow-md dark:bg-gray-900 "
       >
          <div className="flex justify-between font-bold px-6">
             <p>Published by: {publisher}</p>

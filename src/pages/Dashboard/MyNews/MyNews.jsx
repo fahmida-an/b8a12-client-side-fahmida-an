@@ -4,6 +4,7 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 import { Link } from "react-router-dom";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import {toast} from "react-hot-toast"
+import { Helmet } from "react-helmet-async";
 
 const MyNews = () => {
   const [news, refetch] = useNews();
@@ -33,11 +34,14 @@ const MyNews = () => {
 }
 
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="max-w-4xl mx-auto">
+         <Helmet>
+      <title>NewsChannel || My News</title>
+    </Helmet>
       <h1 className="py-10 items-center text-center font-bold text-3xl underline">My News: {myNews.length}</h1>
       {myNews.map((item) => (
         
-        <div key={item._id} className="w-[800px] mx-auto" >
+        <div key={item._id} className=" w-[300px] lg:w-[800px] mx-auto overflow-x-auto" >
          <div className="flex justify-between font-bold px-6 my-3">
             <p>Published by: {item.publisher}</p>
             <p>Date: {item.date}</p>

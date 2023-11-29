@@ -55,7 +55,7 @@ const Publisher = () => {
 
 
      </div>
-     <div className="mt-6">
+     <div className="mt-6 mx-auto">
       <CategoryCard></CategoryCard>
      </div>
      

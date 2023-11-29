@@ -2,8 +2,9 @@ import { useState } from "react";
 import useNews from "../../hooks/useNews";
 import Typewriter from "typewriter-effect";
 import InfiniteScroll from "react-infinite-scroller";
+import { Helmet } from "react-helmet-async";
 const AllArticle = () => {
-  // const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("");
   const [news] = useNews();
 
   const allNews = news.filter((item) => item.status === "approved");
@@ -19,16 +20,20 @@ const AllArticle = () => {
   };
   const loadFunc = () => {};
 
-  // search
-  // const handleSearch = (e) => {
-  //   e.preventDefault();
-  //   const searchText = e.target.search.value;
-  //   if (searchText) {
-  //     setSearch(searchText);
-  //   }
-  // };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const searchText = e.target.search.value;
+    if (searchText) {
+      setSearch(searchText);
+    }
+  };
 
   return (
+    <>
+    <Helmet>
+    <title>NewsChannel || All Article</title>
+  </Helmet>
     <div
       className="max-w-screen-xl mx-auto bg-fuchsia-50 "
       style={{ height: "650px", overflow: "auto" }}
@@ -55,7 +60,7 @@ const AllArticle = () => {
           ></Typewriter>
         </h1>
 
-        {/* <form onSubmit={handleSearch} className="w-1/2 mx-auto">
+        <form onSubmit={handleSearch} className="w-1/2 mx-auto">
           <label
             htmlFor="default-search"
             className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -95,7 +100,7 @@ const AllArticle = () => {
               Search
             </button>
           </div>
-        </form> */}
+        </form>
         {sortedNews.map((item) => (
           <div
             key={item._id}
@@ -148,6 +153,7 @@ const AllArticle = () => {
         ))}
       </InfiniteScroll>
     </div>
+    </>
   );
 };
 
