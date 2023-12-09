@@ -14,4 +14,5 @@ News Channel is a newspaper, where user can get all the latest news by using thi
 - User can get access premium news
 - jwt secure
 - admin can update, delete news 
-- admin have approve news
+- admin can approve news
+- payment integration
