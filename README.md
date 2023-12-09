@@ -16,3 +16,8 @@ News Channel is a newspaper, where user can get all the latest news by using thi
 - admin can update, delete news 
 - admin can approve news
 - payment integration
+
+#### Technologies:
+- Front-End: html, tailwindcss, javascript
+- Authentication: firebase
+
