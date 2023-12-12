@@ -45,31 +45,62 @@ const Nav = () => {
           </Link>
 
           {user ? (
-            <>
-              <Link to={"/#"}>
-                <li className="my-4 py-4 border-b border-slate-800 hover:bg-fuchsia-300 hover:rounded">
-                  User Dashboard
-                </li>
-              </Link>
-              
+                <>
+                 
 
-              <Link>
-                <li
-                  onClick={handleLogOut}
-                  className="my-4 py-4 border-b border-slate-800 hover:bg-fuchsia-400 hover:rounded"
-                >
-                  Log Out
-                </li>
-              </Link>
+                  {user && isPremium && (
+                    <Link to={"/premiumArticle"}>
+                      <li className="my-4 py-4 border-b border-slate-800 hover:bg-fuchsia-300 hover:rounded">
+                        Premium Article
+                      </li>
+                    </Link>
+                  )}
 
-            </>
-          ) : (
-            <Link to={"/signup"}>
-              <li className="my-4 py-4 border-b border-slate-800 hover:bg-slate-800 hover:rounded">
-                Sign Up
-              </li>
-            </Link>
-          )}
+                  {user && !isPremium && (
+                    <Link to={"/premium"}>
+                      <li className="my-4 py-4 border-b border-slate-800 hover:bg-fuchsia-300 hover:rounded">
+                        Subscription
+                      </li>
+                    </Link>
+                  )}
+
+                  {user && isAdmin && (
+                    <Link to={"/dashboard/adminHome"}>
+                      <li className="my-4 py-4 border-b border-slate-800 hover:bg-fuchsia-300 hover:rounded">
+                        Dashboard
+                      </li>
+                    </Link>
+                  )}
+                  {user && !isAdmin && (
+                    <Link to={"/dashboard/addArticle"}>
+                      <li className="my-4 py-4 border-b border-slate-800 hover:bg-fuchsia-300 hover:rounded">
+                       User Dashboard
+                      </li>
+                    </Link>
+                  )}
+
+                  <Link>
+                    <li
+                      onClick={handleLogOut}
+                      className="my-4 py-4 border-b border-slate-800 hover:bg-fuchsia-300 hover:rounded "
+                    >
+                      log Out
+                    </li>
+                  </Link>
+
+                  <Link to={"/profile"}>
+                    <li  className="my-4 py-4 border-b border-slate-800 hover:bg-fuchsia-300 hover:rounded ">
+                     Profile
+                    </li>
+                  </Link>
+                </>
+              ) : (
+                <Link to={"/signup"}>
+                  <li className="my-4 py-4 border-b border-slate-800 hover:bg-fuchsia-300 hover:rounded ">
+                    Sign Up
+                  </li>
+                </Link>
+              )}
         </ul>
       </div>
     </>
@@ -79,7 +110,7 @@ const Nav = () => {
     <nav>
       <div className="h-10vh flex justify-between  text-white lg:py-5 px-20 py-4">
         <div className="flex items-center flex-1">
-          <span className="text-3xl font-bold text-slate-900">TravelNews</span>
+          <span className="text-3xl font-bold text-slate-900">News Channel</span>
         </div>
 
         <div className="lg:flex md:flex lg:flex-1 items-center justify-end font-normal hidden">
@@ -136,7 +167,7 @@ const Nav = () => {
                       onClick={handleLogOut}
                       className="hover:text-fuchsia-600 transition border-b-2 border-fuchsia-100 hover:border-fuchsia-600 cursor-pointer "
                     >
-                      log Out
+                      logOut
                     </li>
                   </Link>
 

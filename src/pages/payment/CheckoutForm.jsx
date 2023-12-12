@@ -3,7 +3,6 @@ import { useContext, useEffect, useState } from "react";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import usePremiumPackage from "../../hooks/usePremiumPackage";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { useNavigate } from "react-router-dom";
 import moment from "moment";
 import { Helmet } from "react-helmet-async";
 const CheckoutForm = () => {
@@ -15,7 +14,6 @@ const CheckoutForm = () => {
   const axiosPublic = useAxiosPublic();
   const { user } = useContext(AuthContext);
   const [premiumPackage] = usePremiumPackage();
-  const navigate = useNavigate();
   const totalPrice = premiumPackage.reduce(
     (total, item) => total + item.price,
     0
@@ -73,7 +71,6 @@ const CheckoutForm = () => {
     } else {
       console.log("payment intent", paymentIntent);
       if (paymentIntent.status === "succeeded") {
-        navigate("/premiumArticle");
         console.log("transaction id", paymentIntent.id);
         setTransactionId(paymentIntent.id);
 
@@ -130,8 +127,11 @@ const CheckoutForm = () => {
             Success ! Your Transaction id: {transactionId}...Check Navbar to see
             premium Aritcle
           </p>
+          
         )}
+
       </form>
+      <p className="text-2xl font bold text-red-800">Notice: Please wait a second or go back if pay not work !!</p>
     </div>
   );
 };

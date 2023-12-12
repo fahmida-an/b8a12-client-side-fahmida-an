@@ -25,6 +25,7 @@ import AddPublisher from "../pages/AddPublisher/AddPublisher";
 import PrivateRoutes from "./PrivateRoutes";
 import RateUs from "../pages/RateUs/RateUs";
 import AllReviews from "../pages/AllReviews/AllReviews";
+import AllPremiumNews from "../pages/AllPremiumArticle/AllPremiumNews";
   
   const router = createBrowserRouter([
     {
@@ -116,6 +117,10 @@ import AllReviews from "../pages/AllReviews/AllReviews";
       {
         path: "allReviews",
         element: <AllReviews></AllReviews>
+      },
+      {
+        path: "allPremiumNews",
+        element: <AllPremiumNews></AllPremiumNews>
       }
       
     
