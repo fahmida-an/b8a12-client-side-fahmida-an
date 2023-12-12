@@ -38,7 +38,7 @@ const AllArticle = () => {
       className="max-w-screen-xl mx-auto bg-fuchsia-50 "
       style={{ height: "650px", overflow: "auto" }}
     >
-      <InfiniteScroll
+      <InfiniteScroll className="bg-black w-3"
         pageStart={0}
         loadMore={loadFunc}
         hasMore={true || false}

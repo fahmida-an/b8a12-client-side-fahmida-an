@@ -18,7 +18,7 @@ const Home = () => {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setIsModalVisible(true);
-    }, 10000);
+    }, 5000);
     return () => clearTimeout(timeoutId);
   }, []);
 
